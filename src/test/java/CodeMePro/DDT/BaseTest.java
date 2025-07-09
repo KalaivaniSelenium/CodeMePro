@@ -28,6 +28,7 @@ public class BaseTest {
 //    	driver = new EdgeDriver(options);
     	driver = new ChromeDriver();
     	driver.manage().window().maximize();
+    	driver.get("https://thinktime.in/get-a-quote/");
 
     }
 

@@ -50,12 +50,12 @@ public class Registration extends BaseTest {
         try {
             logger.info("==== Starting Registration Test for: " + firstName + " " + lastName + " ====");
 
-            wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-            WebElement regForm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space(text())='Let us know how we can help you!']")));
-            scrollToElement(driver, regForm);
+            wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            Assert.assertEquals(driver.getTitle(), "Get A Quote - Thinktime");
+            scrollToElement(driver, driver.findElement(By.xpath("//p[normalize-space(text())='Let us know how we can help you!']")));
+            
             Thread.sleep(1000);
 
-            Assert.assertEquals(regForm.getText().trim(), "Let us know how we can help you!");
             logger.info("Registration form is displayed");
 
             WebElement firstNameField = wait.until(ExpectedConditions.elementToBeClickable(By.id("ff_6_names_first_name_")));
