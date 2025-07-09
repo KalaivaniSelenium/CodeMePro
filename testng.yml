@@ -1,39 +1,8 @@
-name: Run Selenium Tests with TestNG
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v3
-
-      - name: ☕ Set up Java 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: 📦 Cache Maven dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-
-      - name: 🧪 Run Maven TestNG Tests
-        run: mvn clean test
-
-      - name: 📤 Upload TestNG Reports
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: TestNG-Reports
-          path: test-output/
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="AutomationSuite">
+  <test name="Functional Tests">
+    <classes>
+      <class name="CodeMePro.DDT.Registration"/>
+    </classes>
+  </test>
+</suite>
