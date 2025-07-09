@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -19,10 +20,12 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://thinktime.in/get-a-quote/");
+    	EdgeOptions options = new EdgeOptions();
+    	options.addArguments("headless");
+    	options.addArguments("disable-gpu");
+    	options.addArguments("window-size=1920,1080");
+    	driver = new EdgeDriver(options);
+
     }
 
     @AfterMethod
