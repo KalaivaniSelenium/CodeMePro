@@ -20,6 +20,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
+    	WebDriverManager.edgedriver().setup();
     	EdgeOptions options = new EdgeOptions();
     	options.addArguments("headless");
     	options.addArguments("disable-gpu");
