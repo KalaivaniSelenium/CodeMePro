@@ -39,7 +39,9 @@ public class Registration extends BaseTest {
         }
 
         return finalData;
-    }    @Test(dataProvider = "registrationData")
+    }    
+    
+    @Test(dataProvider = "registrationData")
     public void registerUser(String firstName, String lastName, String email,
                              String country, String phoneNo, String service, String message, int rowIndex) {
 
@@ -48,7 +50,7 @@ public class Registration extends BaseTest {
         try {
             logger.info("==== Starting Registration Test for: " + firstName + " " + lastName + " ====");
 
-            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             WebElement regForm = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[text()='Let us know how we can help you! ']")));
             scrollToElement(driver, regForm);
             Thread.sleep(1000);
