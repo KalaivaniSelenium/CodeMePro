@@ -20,13 +20,13 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-    	WebDriverManager.chromedriver().setup();
+    	WebDriverManager.edgedriver().setup();
 //    	EdgeOptions options = new EdgeOptions();
 //    	options.addArguments("headless");
 //    	options.addArguments("disable-gpu");
 //    	options.addArguments("window-size=1920,1080");
 //    	driver = new EdgeDriver(options);
-    	driver = new ChromeDriver();
+    	driver = new EdgeDriver();
     	driver.manage().window().maximize();
     	driver.get("https://thinktime.in/get-a-quote/");
 
