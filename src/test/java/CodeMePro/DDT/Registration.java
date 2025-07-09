@@ -50,8 +50,8 @@ public class Registration extends BaseTest {
         try {
             logger.info("==== Starting Registration Test for: " + firstName + " " + lastName + " ====");
 
-            wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            WebElement regForm = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[text()='Let us know how we can help you! ']")));
+            wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebElement regForm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space(text())='Let us know how we can help you!']")));
             scrollToElement(driver, regForm);
             Thread.sleep(1000);
 
