@@ -20,12 +20,14 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-    	WebDriverManager.edgedriver().setup();
-    	EdgeOptions options = new EdgeOptions();
-    	options.addArguments("headless");
-    	options.addArguments("disable-gpu");
-    	options.addArguments("window-size=1920,1080");
-    	driver = new EdgeDriver(options);
+    	WebDriverManager.chromedriver().setup();
+//    	EdgeOptions options = new EdgeOptions();
+//    	options.addArguments("headless");
+//    	options.addArguments("disable-gpu");
+//    	options.addArguments("window-size=1920,1080");
+//    	driver = new EdgeDriver(options);
+    	driver = new ChromeDriver();
+    	driver.manage().window().maximize();
 
     }
 
